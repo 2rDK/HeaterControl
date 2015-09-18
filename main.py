@@ -9,7 +9,7 @@ import requests
 
 setpoint = 22
 zone = 0.2
-radiator = Relay(1)
+radiator = Relay(12)
 controller = BangBang(setpoint, zone)
 
 
