@@ -6,7 +6,6 @@ GPIO.setmode(GPIO.BOARD)
 
 class Relay(object):
     """DOKUMENTATION
-
     
     """
 

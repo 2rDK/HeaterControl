@@ -4,6 +4,9 @@ import random
 from Relay import Relay
 from Controls import BangBang
 from threading import Timer
+import threading
+from webUI import mainWeb
+import requests
 
 setpoint = 22
 zone = 0.2
@@ -20,6 +23,16 @@ def controlLoop():
     print("Regulering aktiv !")
     print(time.clock())
     controller.control(radiator, temp)
+    
+def GUIThread():
+    print("Starter tråd...")
+    s = threading.Thread(mainWeb())
+    s.daemon(True)
+    s.start()
+    print("GUI kører !")
+
+
+""" Starting the control loop """
 
 controlLoop()
 
@@ -31,7 +44,10 @@ while True:
         temp = temp - random.uniform(0, 0.05)
         
     print(round(temp,2))
-    
+    test = "http://localhost:8888/writetemp/"+str(round(temp,2))
+    rqs = requests.get(test)
+    print(rqs.status_code)
 
        
     time.sleep(1)
+#GUIThread()
