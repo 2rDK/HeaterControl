@@ -5,7 +5,6 @@ from Relay import Relay
 from Controls import BangBang
 from threading import Timer
 import threading
-from webUI import mainWeb
 import requests
 
 setpoint = 22
@@ -24,14 +23,6 @@ def controlLoop():
     print(time.clock())
     controller.control(radiator, temp)
     
-def GUIThread():
-    print("Starter tråd...")
-    s = threading.Thread(mainWeb())
-    s.daemon(True)
-    s.start()
-    print("GUI kører !")
-
-
 """ Starting the control loop """
 
 controlLoop()
