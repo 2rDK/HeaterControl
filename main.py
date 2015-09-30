@@ -22,7 +22,7 @@ def controlLoop():
     #t.daemon = True
     t.start()
     print("Regulering aktiv !")
-    print(time.clock())
+    #print(time.clock())
     controller.control(radiator, temp)
     
 """ Starting the control loop """
