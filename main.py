@@ -6,10 +6,12 @@ from Controls import BangBang
 from threading import Timer
 import threading
 import requests
+import HTU21D
 
 setpoint = 22
 zone = 0.2
 radiator = Relay(12)
+rumsensor = HTU21D()
 controller = BangBang(setpoint, zone)
 
 
@@ -39,7 +41,8 @@ while True:
     rqs = requests.get(test)
     if rqs.status_code != 200:
         print("Problemer med at sende opdatering til GUI (Tjek tornado")
-
+    
+    print(rumsensor.read_temperature())
        
     time.sleep(1)
 #GUIThread()
