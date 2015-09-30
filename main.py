@@ -35,9 +35,9 @@ while True:
         temp = temp - random.uniform(0, 0.05)
         
     print(round(temp,2))
-    #test = "http://localhost:8888/writetemp/"+str(round(temp,2))
-    #rqs = requests.get(test)
-    #print(rqs.status_code)
+    test = "http://localhost:8888/writetemp/"+str(round(temp,2))
+    rqs = requests.get(test)
+    print(rqs.status_code)
 
        
     time.sleep(1)
