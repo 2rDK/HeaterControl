@@ -37,7 +37,8 @@ while True:
     print(round(temp,2))
     test = "http://localhost:8888/writetemp/"+str(round(temp,2))
     rqs = requests.get(test)
-    print(rqs.status_code)
+    if rqs.status_code != 200:
+        print("Problemer med at sende opdatering til GUI (Tjek tornado")
 
        
     time.sleep(1)
