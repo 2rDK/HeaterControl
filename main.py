@@ -6,7 +6,7 @@ from Controls import BangBang
 from threading import Timer
 import threading
 import requests
-import HTU21D
+from HTU21D import HTU21D
 
 setpoint = 22
 zone = 0.2
