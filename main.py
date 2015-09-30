@@ -31,18 +31,17 @@ controlLoop()
 
 
 while True:
-    if radiator.state:
-        temp = temp + random.uniform(0, 0.1)
-    else:
-        temp = temp - random.uniform(0, 0.05)
+    temp = rumsensor.read_temperature()
+    #if radiator.state:
+    #    temp = temp + random.uniform(0, 0.1)
+    #else:
+    #    temp = temp - random.uniform(0, 0.05)
         
     print(round(temp,2))
     test = "http://localhost:8888/writetemp/"+str(round(temp,2))
     rqs = requests.get(test)
     if rqs.status_code != 200:
-        print("Problemer med at sende opdatering til GUI (Tjek tornado")
-    
-    print(rumsensor.read_temperature())
+        print("Problemer med at sende opdatering til GUI (Tjek tornado)")
        
     time.sleep(1)
 #GUIThread()
