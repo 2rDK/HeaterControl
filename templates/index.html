@@ -9,6 +9,9 @@
 
     <!-- Bootstrap -->
     <link href="{{ static_url("css/bootstrap.min.css") }}" rel="stylesheet">
+    <link href="{{ static_url("css/HeaterControl.css") }}" rel="stylesheet">
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../static/css/HeaterControl.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,10 +21,21 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Heater control 0.1</h1>
-
-	<h2>Radiatoren er <span class="label label-default">slukket</span></h2>
-	<h2>Temp: <span id="demo"></span> &deg;C</h2>
+    <p class="bg-info">Heater control 0610</p>
+	<div class="row">
+    	<div class="col-sm-4"></div>
+    	<div class="col-sm-4" align="center">
+			<h1><span class="label label-default">Slukket</span></h1>
+			<h2><span id="demo">23</span> &deg;C | <span id="setPoint">22</span> &deg;C</h2>
+    	</div>
+        <div class="col-sm-4" align="right">
+        	<h3>
+            	<span class="glyphicon glyphicon-cloud-upload"></span><br/>
+        		<span class="glyphicon glyphicon-fire"></span><br/>
+                <span class="glyphicon glyphicon-leaf"></span><br/>
+            </h3>
+        </div>
+	</div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
