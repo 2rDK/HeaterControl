@@ -1,0 +1,1 @@
+@reboot python /home/pi/heaterControl/webREST.py 1>> /home/pi/webREST.log 2>> /home/pi/webREST.err
