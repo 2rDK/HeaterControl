@@ -14,4 +14,4 @@ echo -en "\e[32m### Setting up cron... ###\e[0m\n"
 ThisFolder=$(pwd)
 
 echo $ThisFolder
-\cp -v $ThisFolder/install/HeatControlCron /etc/init.d/HeaterControlCron 
+\cp -v $ThisFolder/install/HeaterControlCron /etc/init.d/HeaterControlCron 
