@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo -en "### \e[32mInstalling prerequisites...\e[0m"
 
