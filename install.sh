@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo -e "### \e[32mInstalling prerequisites...\e[0m"
+echo -en "### \e[32mInstalling prerequisites...\e[0m"
 
 apt-get install midori -y
 apt-get install python3-pip -y
@@ -9,8 +9,8 @@ apt-get install libmysqlclient-dev -y
 apt-get install python-dev -y
 pip3 install mysqlclient
 
-echo -e "### \e[32mSetting up cron...\e[0m"
+echo -en "### \e[32mSetting up cron...\e[0m"
 
-ThisFolder = pwd
+ThisFolder=$(pwd)
 
-echo -e ThisFolder
+echo $(ThisFolder)
