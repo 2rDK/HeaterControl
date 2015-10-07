@@ -8,6 +8,7 @@ pip3 install requests
 apt-get install libmysqlclient-dev -y
 apt-get install python-dev -y
 pip3 install mysqlclient
+pip3 install tornado
 
 echo -en "\e[32m### Setting up cron... ###\e[0m\n"
 
