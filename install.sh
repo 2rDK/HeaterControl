@@ -15,3 +15,4 @@ ThisFolder=$(pwd)
 
 echo $ThisFolder
 \cp -v $ThisFolder/install/HeaterControlCron /etc/init.d/HeaterControlCron 
+chmod +x /etc/init.d/HeaterControlCron
