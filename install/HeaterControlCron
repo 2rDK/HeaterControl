@@ -7,7 +7,7 @@
 
 case "$1" in 
     start)
-       python3 @FOLDER@/webRest.py
+       python3 @FOLDER@/webREST.py
        ;;
     stop)
        echo "stop"
