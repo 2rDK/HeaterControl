@@ -5,31 +5,12 @@
 # Source function library.
 #. /etc/init.d/functions
 
-start() {
-    # code to start app comes here 
-    # example: daemon program_name &
-    python3 /home/pi/HeaterControl
-}
-
-stop() {
-    # code to stop app comes here 
-    # example: killproc program_name
-}
-
 case "$1" in 
     start)
-       start
+       python3 @FOLDER@/webRest.py
        ;;
     stop)
-       stop
-       ;;
-    restart)
-       stop
-       start
-       ;;
-    status)
-       # code to check status of app comes here 
-       # example: status program_name
+       echo "stop"
        ;;
     *)
        echo "Usage: $0 {start|stop|status|restart}"

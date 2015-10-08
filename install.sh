@@ -15,5 +15,15 @@ echo -en "\e[32m### Setting up cron... ###\e[0m\n"
 ThisFolder=$(pwd)
 
 echo $ThisFolder
-\cp -v $ThisFolder/install/HeaterControlCron /etc/init.d/HeaterControlCron 
+
+echo -en "\e[32m### Copying staging file to init.d... ###\e[0m\n"
+\cp -v $ThisFolder/install/HeaterControlCron /etc/init.d/HeaterControlCron
+
+echo -en "\e[32m### Setting execution permission... ###\e[0m\n"
 chmod +x /etc/init.d/HeaterControlCron
+
+echo -en "\e[32m### Adapting to current folder... ###\e[0m\n"
+sed -i s/@FOLDER@/$ThisFolder/g /etc/init.d/HeaterControlCron
+
+echo -en "\e[32m### Adding to boot sequence... ###\e[0m\n"
+update-rc.d HeaterControlCron defaults
