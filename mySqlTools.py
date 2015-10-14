@@ -1,7 +1,7 @@
 import MySQLdb
 import configparser
 config = configparser.ConfigParser()
-config.read('/home/pi/Documents/dweetData/fcn/settings.ini')
+config.read('/home/pi/HeaterControl/settings.ini')
 
 
 
