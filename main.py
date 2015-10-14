@@ -32,12 +32,22 @@ def logLoop():
     #t.daemon = True
     lt.start()
     print("Starter logning...")
+    myKeys = {
+        'Loft_temp': round(rumsensor.read_temperature(),2),
+        'Loft_hum': round(rumsensor.read_temperature(),2)
+        }
+    
+    mySqlSenderAnalog(myKeys,1)
+    
     print("Logning komplet !")
+    
+    
+    
     
 """ Starting the control loop """
 controlLoop()
 """Starting the logging loop """
-#logLoop()
+logLoop()
 
 while True:
     temp = rumsensor.read_temperature()
