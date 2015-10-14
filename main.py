@@ -25,10 +25,17 @@ def controlLoop():
     #print(time.clock())
     controller.control(radiator, temp)
     
+def logLoop():
+    t=Timer(60.0, logLoop())
+    #t.daemon = True
+    t.start()
+    print("Starter logning...")
+    print("Logning komplet !")
+    
 """ Starting the control loop """
-
 controlLoop()
-
+"""Starting the logging loop """
+logLoop()
 
 while True:
     temp = rumsensor.read_temperature()
