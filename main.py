@@ -33,8 +33,8 @@ def logLoop():
     lt.start()
     print("Starter logning...")
     myKeys = {
-        'Loft_temp': round(rumsensor.read_temperature(),2),
-        'Loft_hum': round(rumsensor.read_temperature(),2)
+        'Vrk_temp': round(rumsensor.read_temperature(),2),
+        'Vrk_hum': round(rumsensor.read_temperature(),2)
         }
     
     mySqlSenderAnalog(myKeys,1)
