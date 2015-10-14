@@ -26,9 +26,9 @@ def controlLoop():
     controller.control(radiator, temp)
     
 def logLoop():
-    t=Timer(60.0, logLoop())
+    tt=Timer(60.0, logLoop())
     #t.daemon = True
-    t.start()
+    tt.start()
     print("Starter logning...")
     print("Logning komplet !")
     
