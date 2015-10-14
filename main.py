@@ -35,7 +35,7 @@ def logLoop():
 """ Starting the control loop """
 controlLoop()
 """Starting the logging loop """
-logLoop()
+#logLoop()
 
 while True:
     temp = rumsensor.read_temperature()
