@@ -7,6 +7,8 @@ from threading import Timer
 import threading
 import requests
 from HTU21D import HTU21D
+from mySqlTools import mySqlSenderAnalog
+
 
 setpoint = 22
 zone = 0.2
@@ -18,17 +20,17 @@ controller = BangBang(setpoint, zone)
 temp = 20
 
 def controlLoop():
-    t=Timer(15.0, controlLoop)
+    ct=Timer(15.0, controlLoop)
     #t.daemon = True
-    t.start()
+    ct.start()
     print("Regulering aktiv !")
     #print(time.clock())
     controller.control(radiator, temp)
     
 def logLoop():
-    tt=Timer(60.0, logLoop())
+    lt=Timer(60.0, logLoop)
     #t.daemon = True
-    tt.start()
+    lt.start()
     print("Starter logning...")
     print("Logning komplet !")
     
