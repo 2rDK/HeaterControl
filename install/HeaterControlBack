@@ -1,0 +1,19 @@
+#! /bin/sh
+# /etc/init.d/HeaterControlBack
+#
+
+# Source function library.
+#. /etc/init.d/functions
+
+case "$1" in 
+    start)
+       sudo python3 @FOLDER@/main.py
+       ;;
+    stop)
+       echo "stop"
+       ;;
+    *)
+       echo "Usage: $0 {start|stop|status|restart}"
+esac
+
+exit 0 
