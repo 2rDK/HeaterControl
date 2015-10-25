@@ -15,7 +15,7 @@ class Relay(object):
         self.pin = pin
         GPIO.setup(pin, GPIO.OUT)
         self.state = False
-        GPIO.output(pin, self.state)
+        GPIO.output(pin,  not self.state)
 
     def enable(self):
         self.state = True
