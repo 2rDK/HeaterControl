@@ -24,3 +24,23 @@ def mySqlSenderAnalog(myKeys, unit):
         
         if db:    
             db.close()
+
+def mySqlSenderDigital(myKeys):
+    try:
+        db=MySQLdb.connect(config['MySQL']['Host'],config['MySQL']['User'],config['MySQL']['Pass'],config['MySQL']['db'])
+        c=db.cursor()
+    
+        for key, value in myKeys.items():
+            c.execute("INSERT INTO `Digital` (`device_id`, `tag`, `value`) VALUES ('"+str(config['Device']['ID'])+"', '"+str(key)+"', '"+str(value)+"')")
+        
+        db.commit()
+     
+    except MySQLdb.Error as e:
+  
+        print("Error %d: %s" % (e.args[0],e.args[1]))
+
+    
+    finally:    
+        
+        if db:    
+            db.close()
