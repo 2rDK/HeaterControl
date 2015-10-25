@@ -46,7 +46,7 @@
     	<script>
 	function refreshReadings(){
 		var xmlhttp = new XMLHttpRequest();
-		var url = "http://localhost:8888/readtemp";
+		var url = "../readtemp";
 
 		xmlhttp.onreadystatechange = function() {
 	    	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
