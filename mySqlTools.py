@@ -31,7 +31,7 @@ def mySqlSenderDigital(myKeys):
         c=db.cursor()
     
         for key, value in myKeys.items():
-            c.execute("INSERT INTO `Digital` (`device_id`, `tag`, `value`) VALUES ('"+str(config['Device']['ID'])+"', '"+str(key)+"', "+value+")")
+            c.execute("INSERT INTO `Digital` (`device_id`, `tag`, `value`) VALUES ('"+str(config['Device']['ID'])+"', '"+str(key)+"', "+str(value)+")")
         
         db.commit()
      
