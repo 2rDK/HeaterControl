@@ -10,7 +10,7 @@ from HTU21D import HTU21D
 from mySqlTools import mySqlSenderAnalog
 
 
-setpoint = 22
+setpoint = 15
 zone = 0.2
 radiator = Relay(12)
 rumsensor = HTU21D()

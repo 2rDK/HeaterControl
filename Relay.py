@@ -19,10 +19,10 @@ class Relay(object):
 
     def enable(self):
         self.state = True
-        GPIO.output(self.pin, self.state)
+        GPIO.output(self.pin, not self.state)
         return self.state
 
     def disable(self):
         self.state = False
-        GPIO.output(self.pin, self.state)
+        GPIO.output(self.pin, not self.state)
         return self.state
