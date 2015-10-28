@@ -10,16 +10,15 @@ from HTU21D import HTU21D
 from mySqlTools import mySqlSenderAnalog
 from HeaterControlTools import printCurrentTime
 
-
+print(printCurrentTime()+"Imports complete")
 
 setpoint = 16
 zone = 0.2
 radiator = Relay(12)
 rumsensor = HTU21D()
 controller = BangBang(setpoint, zone)
+print(printCurrentTime()+"Setup complete")
 
-
-temp = 20
 
 def controlLoop():
     ct=Timer(15.0, controlLoop)
