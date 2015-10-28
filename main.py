@@ -17,6 +17,7 @@ zone = 0.2
 radiator = Relay(12)
 rumsensor = HTU21D()
 controller = BangBang(setpoint, zone)
+temp = round(rumsensor.read_temperature(),2)
 print(printCurrentTime()+"Setup complete")
 
 
