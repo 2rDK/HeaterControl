@@ -25,7 +25,7 @@ def controlLoop():
     ct=Timer(15.0, controlLoop)
     #t.daemon = True
     ct.start()
-    print(printCurrentTime+"Regulering aktiv !")
+    print(printCurrentTime()+"Regulering aktiv !")
     #print(time.clock())
     controller.control(radiator, temp)
     
@@ -33,7 +33,7 @@ def logLoop():
     lt=Timer(60.0, logLoop)
     #t.daemon = True
     lt.start()
-    print(printCurrentTime+"Starter logning...")
+    print(printCurrentTime()+"Starter logning...")
     myKeys = {
         'Vrk_temp': round(rumsensor.read_temperature(),2),
         'Vrk_hum': round(rumsensor.read_humidity(),2)
@@ -41,7 +41,7 @@ def logLoop():
     
     mySqlSenderAnalog(myKeys,1)
     
-    print(printCurrentTime+"Logning komplet !")
+    print(printCurrentTime()+"Logning komplet !")
     
     
     
