@@ -59,10 +59,12 @@ while True:
     #    temp = temp - random.uniform(0, 0.05)
         
     print(round(temp,2))
-    test = "http://localhost:8888/writetemp/"+str(round(temp,2))
-    rqs = requests.get(test)
-    if rqs.status_code != 200:
-        print("Problemer med at sende opdatering til GUI (Tjek tornado)")
+    temp_adress = "http://localhost:8888/writetemp/"+str(round(temp,2))
+    try:
+        rqs = requests.get(temp_adress)
+    except requests.exceptions.RequestException as e:    
+        print(e)
+        print("GUI lader til at være offline, check Tornado !")
        
     time.sleep(1)
 #GUIThread()
