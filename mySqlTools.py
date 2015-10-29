@@ -1,11 +1,12 @@
 import MySQLdb
 import configparser
 config = configparser.ConfigParser()
-config.read('/home/pi/HeaterControl/settings.ini')
-
+#config.read('/home/pi/HeaterControl/settings.ini')
+config.read('settings.ini')
 
 
 def mySqlSenderAnalog(myKeys, unit):
+    db = None
     try:
         db=MySQLdb.connect(config['MySQL']['Host'],config['MySQL']['User'],config['MySQL']['Pass'],config['MySQL']['db'])
         c=db.cursor()
@@ -26,6 +27,7 @@ def mySqlSenderAnalog(myKeys, unit):
             db.close()
 
 def mySqlSenderDigital(myKeys):
+    db = None
     try:
         db=MySQLdb.connect(config['MySQL']['Host'],config['MySQL']['User'],config['MySQL']['Pass'],config['MySQL']['db'])
         c=db.cursor()
