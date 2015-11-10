@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
+from HeaterControlTools import printCurrentTime
+
 class BangBang(object):
     """DOKUMENTATION
-
     
     """
 
@@ -15,11 +16,11 @@ class BangBang(object):
     def control(self, output, temp):
         if temp > self.setpoint+self.neutralZone and output.state:
             output.disable()
-            print("Raditoren slukkes ! - Fra Class \o/")
+            print(printCurrentTime()+"Raditoren slukkes ! - Fra Class \o/")
     
         if temp < self.setpoint-self.neutralZone and not(output.state):
             output.enable()
-            print("Radiatoren tændes ! - Fra Class \o/")
+            print(printCurrentTime()+"Radiatoren tændes ! - Fra Class \o/")
         
         
 
