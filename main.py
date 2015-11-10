@@ -20,12 +20,8 @@ controller = BangBang(setpoint, zone)
 temp = round(rumsensor.read_temperature(),2)
 print(printCurrentTime()+"Setup complete")
 
-
-<<<<<<< HEAD
 temp = 0
 
-=======
->>>>>>> f47e427b98213843b81fa6d3ebf9e351a0727be0
 def controlLoop():
     ct=Timer(15.0, controlLoop)
     #t.daemon = True
