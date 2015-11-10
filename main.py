@@ -17,7 +17,7 @@ rumsensor = HTU21D()
 controller = BangBang(setpoint, zone)
 
 
-temp = 20
+temp = 0
 
 def controlLoop():
     ct=Timer(15.0, controlLoop)
@@ -50,11 +50,11 @@ controlLoop()
 logLoop()
 
 while True:
-    temp = rumsensor.read_temperature()
-    #if radiator.state:
-    #    temp = temp + random.uniform(0, 0.1)
-    #else:
-    #    temp = temp - random.uniform(0, 0.05)
+    
+    try:
+        temp = rumsensor.read_temperature()
+    except OSError as err:
+        print("OS error: {0}".format(err))
         
     print(round(temp,2))
     test = "http://localhost:8888/writetemp/"+str(round(temp,2))
