@@ -5,15 +5,19 @@
 # Source function library.
 #. /etc/init.d/functions
 
-case "$1" in 
+case "$1" in
     start)
-       sudo python3 @FOLDER@/main.py
+       python3 @FOLDER@/main.py 1>>/home/pi/HeaterControl.log 2>>/home/pi/HeaterControl.err
        ;;
     stop)
        echo "stop"
+       pid=`ps ax | grep 'HeaterControl/main.py' | head -n1 | awk '{ print $1 }'`
+       echo $pid
+       kill $pid
+       sleep 2
        ;;
     *)
        echo "Usage: $0 {start|stop|status|restart}"
 esac
 
-exit 0 
+exit 0
