@@ -35,17 +35,19 @@ def logLoop():
     #t.daemon = True
     lt.start()
     print(printCurrentTime()+"Starter logning...")
-    myKeys = {
-        'Vrk_temp': round(rumsensor.read_temperature(),2),
-        'Vrk_hum': round(rumsensor.read_humidity(),2)
-        }
+    try:
+        myKeys = {
+                  'Vrk_temp': round(rumsensor.read_temperature(),2),
+                  'Vrk_hum': round(rumsensor.read_humidity(),2)
+                  }
     
-    mySqlSenderAnalog(myKeys,1)
+        mySqlSenderAnalog(myKeys,1)
     
-    print(printCurrentTime()+"Logning komplet !")
-    
-    
-    
+        print(printCurrentTime()+"Logning komplet !")
+        
+    except OSError as err:
+        print(printCurrentTime()+"OS error: {0}".format(err))
+        
     
 """ Starting the control loop """
 controlLoop()
@@ -57,7 +59,7 @@ while True:
     try:
         temp = rumsensor.read_temperature()
     except OSError as err:
-        print("OS error: {0}".format(err))
+        print(printCurrentTime()+"OS error: {0}".format(err))
         
     print(round(temp,2))
     temp_adress = "http://localhost:8888/writetemp/"+str(round(temp,2))
@@ -65,7 +67,7 @@ while True:
         rqs = requests.get(temp_adress)
     except requests.exceptions.RequestException as e:    
         print(e)
-        print("GUI lader til at være offline, check Tornado !")
+        print(printCurrentTime()+"GUI lader til at være offline, check Tornado !")
        
     time.sleep(1)
 #GUIThread()
