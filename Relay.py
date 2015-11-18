@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+from mySqlTools import mySqlSenderDigital
 
 GPIO.setmode(GPIO.BOARD)
 
@@ -20,9 +21,17 @@ class Relay(object):
     def enable(self):
         self.state = True
         GPIO.output(self.pin, not self.state)
+        myKeys = {
+                  'Vrk_radiator': self.state
+                  }
+        mySqlSenderDigital(myKeys)
         return self.state
 
     def disable(self):
         self.state = False
         GPIO.output(self.pin, not self.state)
+        myKeys = {
+                  'Vrk_radiator': self.state
+                  }
+        mySqlSenderDigital(myKeys)
         return self.state
