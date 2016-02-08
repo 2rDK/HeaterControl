@@ -23,6 +23,6 @@ class D113003PowerMeter(minimalmodbus.Instrument):
     
     
 pm = D113003PowerMeter('/dev/ttyUSB0', 1)
-print("Energy: "+pm.get_energy())
-print("Voltage: "+pm.get_supplyVoltage())
-print("Frequency: "+pm.get_supplyFrequency())
+print("Energy: "+str(pm.get_energy()))
+print("Voltage: "+str(pm.get_supplyVoltage()))
+print("Frequency: "+str(pm.get_supplyFrequency()))
