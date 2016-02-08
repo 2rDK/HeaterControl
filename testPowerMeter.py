@@ -1,4 +1,5 @@
 import minimalmodbus
+import time
 
 class D113003PowerMeter(minimalmodbus.Instrument):
     
@@ -24,9 +25,11 @@ class D113003PowerMeter(minimalmodbus.Instrument):
     
     
 pm = D113003PowerMeter('/dev/ttyUSB0', 1)
-try:
-    print("Energy: "+str(pm.get_energy()))
-except IOError:
-    print("Failed to read from instrument")
-print("Voltage: "+str(pm.get_supplyVoltage()))
-print("Frequency: "+str(pm.get_supplyFrequency()))
+while True:
+    try:
+        print("Energy: "+str(pm.get_energy()))
+        print("Voltage: "+str(pm.get_supplyVoltage()))
+        print("Frequency: "+str(pm.get_supplyFrequency()))
+    except IOError:
+        print("Failed to read from instrument")
+    time.sleep(2)
