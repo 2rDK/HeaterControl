@@ -15,11 +15,11 @@ class D113003PowerMeter(minimalmodbus.Instrument):
     
     def get_current(self):
         """Return the current drawn in Amps"""
-        return self.read_register(0,1)
+        return self.read_register(1,1)
     
     def get_supplyFrequency(self):
         """Return the supply frequency in Hertz"""
-        return self.read_register(0,1)
+        return self.read_register(2,1)
     
     
 pm = D113003PowerMeter('/dev/ttyUSB0', 1)
