@@ -8,8 +8,8 @@ class D113003PowerMeter(minimalmodbus.Instrument):
         self.serial.baudrate = 9600
         minimalmodbus.CLOSE_PORT_AFTER_EACH_CALL = True
     def get_energy(self):
-        """Return the accumulated active energy in Watt-hours"""
-        return self.read_long(7)
+        """Return the accumulated active energy in kWh"""
+        return (self.read_long(7)/100)
     
     def get_supplyVoltage(self):
         """Return the supply voltage in Volts"""
